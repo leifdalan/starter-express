@@ -10,17 +10,16 @@ export function createLambda() {
     assumeRolePolicy: JSON.stringify({
       "Version": "2012-10-17",
       "Statement": [{
-            "Effect": "Allow",
-            "Principal": {
-               "Service": [
-                  "lambda.amazonaws.com",
-                  "edgelambda.amazonaws.com"
-               ]
-            },
-            "Action": "sts:AssumeRole"
-         }
-        ]
-
+        "Effect": "Allow",
+        "Principal": {
+            "Service": [
+              "lambda.amazonaws.com",
+              "edgelambda.amazonaws.com"
+            ]
+          },
+          "Action": "sts:AssumeRole"
+        }
+      ]
     })
   });
 
@@ -67,7 +66,7 @@ export function createLambda() {
     handler: 'lambda-handler.handler', 
     role: role.arn, 
     code, 
-    publish: true,
+    publish: true, // needed for lambda edge/cloudfront
     timeout: 10,
   });
   return { lambda };

@@ -13,7 +13,6 @@ interface GetBucketsI {
 
 const s3OriginId = 'S3PhotoOrigin';
 const fakeOrigin = 'fakeOrigin';
-const orginId = 'S3PhotoOrigin';
 
 const s3CacheBehavior = {
   allowedMethods: ['GET', 'HEAD', 'OPTIONS'],
@@ -34,7 +33,7 @@ const s3CacheBehavior = {
   maxTtl: 86400,
   minTtl: 0,
   pathPattern: '/build/*',
-  targetOriginId: orginId,
+  targetOriginId: s3OriginId,
   viewerProtocolPolicy: 'redirect-to-https',
 };
 
@@ -48,7 +47,7 @@ export function createDistribution({
   lambda
 }: GetBucketsI) {
   
-  const distribution = new aws.cloudfront.Distribution('private-distro', {
+  const distribution = new aws.cloudfront.Distribution('remix-distro', {
     aliases,
     comment,
     defaultCacheBehavior: {
@@ -76,7 +75,7 @@ export function createDistribution({
       },
       maxTtl: 86400,
       minTtl: 0,
-      targetOriginId: orginId,
+      targetOriginId: s3OriginId,
       viewerProtocolPolicy: 'allow-all',
     },
     enabled: true,
