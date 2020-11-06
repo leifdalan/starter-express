@@ -1,0 +1,5 @@
+config:
+  remix:domain: <your domain here>
+  remix:zoneId: <Route 53 Zone ID of your domain's hosted zone>
+  aws:profile: <aws profile>
+  aws:region: us-east-1

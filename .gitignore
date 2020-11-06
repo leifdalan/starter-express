@@ -6,4 +6,5 @@ node_modules/
 /public/build
 /yarn-error.log
 /.cache
-
+/express.zip
+/infra/Pulumi.dev.yaml

@@ -13,10 +13,11 @@ export default function App() {
       </head>
       <body>
         <Routes />
-        <Scripts />
+        
         <footer>
           <p>This page was rendered at {data.date.toLocaleString()}</p>
         </footer>
+        <Scripts />
       </body>
     </html>
   );

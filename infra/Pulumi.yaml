@@ -1,0 +1,4 @@
+name: remix
+runtime: nodejs
+description: Remix-run starter
+main: index.ts
